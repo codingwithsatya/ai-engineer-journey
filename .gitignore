@@ -1,4 +1,7 @@
 .env
 venv/
 node_modules/
+__pycache__/aria-chat/node_modules/
+aria-chat/.next/
+aria-chat/node_modules/
 __pycache__/
