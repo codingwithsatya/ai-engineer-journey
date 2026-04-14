@@ -28,11 +28,14 @@ export default function Home() {
     setInput("");
     setLoading(true);
 
-    const response = await fetch("http://localhost:8000/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: updatedHistory }),
-    });
+    const response = await fetch(
+      "https://ai-engineer-journey-production.up.railway.app/chat",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: updatedHistory }),
+      },
+    );
 
     const reader = response.body!.getReader();
     const decoder = new TextDecoder();
