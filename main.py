@@ -50,3 +50,15 @@ def chat(request: ChatRequest):
                 yield text
 
     return StreamingResponse(stream_response(), media_type="text/plain")
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    import sys
+    print("Starting Aria API...", flush=True)
+    print(f"Python version: {sys.version}", flush=True)
+    print(f"PORT env var: {os.environ.get('PORT', 'NOT SET')}", flush=True)
+    print(f"API KEY set: {bool(os.environ.get('ANTHROPIC_API_KEY'))}", flush=True)
+    port = int(os.environ.get("PORT", 8000))
+    print(f"Binding to port: {port}", flush=True)
+    uvicorn.run(app, host="0.0.0.0", port=port)
